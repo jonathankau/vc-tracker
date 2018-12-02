@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  email: MyString
+  signal_profile_url: MyString
+
+two:
+  full_name: MyString
+  email: MyString
+  signal_profile_url: MyString

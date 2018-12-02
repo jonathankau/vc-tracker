@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  investor: one
+  fundraising_stage: 1
+  next_follow_up_at: 2018-12-01 22:29:02
+
+two:
+  investor: two
+  fundraising_stage: 1
+  next_follow_up_at: 2018-12-01 22:29:02
