@@ -4,7 +4,7 @@ module Types
     field :investor_target, InvestorTargetType, null: true
 
     def investor_targets
-      []
+      InvestorTarget.all
     end
 
     def investor_target
