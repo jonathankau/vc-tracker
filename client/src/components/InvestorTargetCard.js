@@ -5,11 +5,11 @@ import {
   Content,
   Media,
   Image,
-  Progress,
   Columns,
 } from 'react-bulma-components/full';
 
 import MutativeFundraisingStageSelect from './MutativeFundraisingStageSelect';
+import FundraisingStageProgress from './FundraisingStageProgress';
 
 const InvestorTargetCard = ({ investorTarget }) => {
   const { investor } = investorTarget;
@@ -37,7 +37,7 @@ const InvestorTargetCard = ({ investorTarget }) => {
               <div className="is-pulled-right">
                 <MutativeFundraisingStageSelect investorTarget={investorTarget} />
 
-                <Progress style={{ width: 200, marginTop: '1rem' }} max={100} value={15} color="warning"/>
+                <FundraisingStageProgress fundraisingStage={investorTarget.fundraisingStage} />
               </div>
             </Columns.Column>
           </Columns>
