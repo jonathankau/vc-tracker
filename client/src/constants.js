@@ -1,4 +1,4 @@
-export const FUNDRAISING_PROGRESS_STAGE_LABELS = Object.freeze({
+export const FUNDRAISING_STAGE_LABELS = Object.freeze({
   'RESEARCHING': 'Researching',
   'CONTACTED': 'Contacted',
   'INITIAL_MEETING': 'Initial meeting',

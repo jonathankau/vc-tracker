@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { Modal, Button } from 'react-bulma-components/full';
+import { Modal } from 'react-bulma-components/full';
 
 import CreateInvestorTargetForm from './CreateInvestorTargetForm';
+import CreateInvestorTargetButton from './CreateInvestorTargetButton';
+import { FUNDRAISING_STAGE_LABELS } from '../constants';
 
 class CreateInvestorTargetModal extends Component {
   state = {
     fullName: '',
     email: '',
-    fundraisingProgress: ''
+    fundraisingStage: Object.keys(FUNDRAISING_STAGE_LABELS)[0]
   };
 
   onFieldChange = event => {
@@ -16,7 +18,7 @@ class CreateInvestorTargetModal extends Component {
 
   render() {
     const { isVisible, onClose } = this.props;
-    const { fullName, email, fundraisingProgress } = this.state;
+    const { fullName, email, fundraisingStage } = this.state;
 
     return (
       <Modal show={isVisible} onClose={onClose} showClose={false} closeOnBlur>
@@ -30,12 +32,17 @@ class CreateInvestorTargetModal extends Component {
               onFieldChange={this.onFieldChange}
               fullName={fullName}
               email={email}
-              fundraisingProgress={fundraisingProgress}
+              fundraisingStage={fundraisingStage}
             />
           </Modal.Card.Body>
 
           <Modal.Card.Foot>
-            <Button color="info">Save</Button>
+            <CreateInvestorTargetButton
+              closeModal={onClose}
+              fullName={fullName}
+              email={email}
+              fundraisingStage={fundraisingStage}
+            />
           </Modal.Card.Foot>
         </Modal.Card>
       </Modal>
