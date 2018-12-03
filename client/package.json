@@ -8,8 +8,10 @@
   "dependencies": {
     "apollo-boost": "^0.1.22",
     "graphql": "^14.0.2",
+    "node-sass": "^4.10.0",
     "react": "^16.6.3",
     "react-apollo": "^2.3.2",
+    "react-bulma-components": "^2.3.0",
     "react-dom": "^16.6.3"
   },
   "scripts": {
