@@ -6,17 +6,32 @@ import {
 } from 'react-bulma-components/full';
 
 import InvestorTargetList from './InvestorTargetList';
+import CreateInvestorTargetModal from './CreateInvestorTargetModal';
 
 class InvestorTargetListScreen extends Component {
+  state = {
+    showCreateTargetModal: false
+  };
+
   render() {
     return (
       <div>
         <div className="is-flex" style={{ justifyContent: 'center' }}>
           <Heading>Investor Tracker</Heading>
-          <Button className="is-info" style={{ marginLeft: '1rem' }}>Add an investor</Button>
+          <Button
+            color="info"
+            style={{ marginLeft: '1rem' }}
+            onClick={() => this.setState({ showCreateTargetModal: true })}
+          >
+            Add an investor
+          </Button>
         </div>
 
         <InvestorTargetList />
+        <CreateInvestorTargetModal
+          isVisible={this.state.showCreateTargetModal}
+          onClose={() => this.setState({ showCreateTargetModal: false })}
+        />
       </div>
     );
   }
