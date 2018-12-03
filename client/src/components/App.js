@@ -1,38 +1,38 @@
-import React, { Component } from 'react';
-import logo from '../logo.svg';
+import ApolloClient from 'apollo-boost';
+import gql from 'graphql-tag';
+import React from 'react';
+import { ApolloProvider, Query } from 'react-apollo';
+
 import '../styles/App.css';
 
-class App extends Component {
-  componentWillMount() {
-    fetch('http://localhost:3000/graphql', {
-      method: 'post',
-      body: JSON.stringify({ query: `{\n__schema{\ntypes{\nname\ndescription\n}\n }\n}\n` }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-  }
+const client = new ApolloClient({
+  uri: 'http://localhost:3000/graphql'
+});
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const SampleQueryComponent = () => (
+  <Query
+    query={gql`
+      {
+        investorTargets {
+          id
+        }
+      }
+    `}
+  >
+    {({ loading, error, data }) => {
+      if (loading) return <p>Loading</p>;
+      if (error) return <p>Error</p>;
+
+      console.log(data);
+      return <p>Done</p>;
+    }}
+  </Query>
+);
+
+const App = () => (
+  <ApolloProvider client={client}>
+    <SampleQueryComponent />
+  </ApolloProvider>
+);
 
 export default App;
