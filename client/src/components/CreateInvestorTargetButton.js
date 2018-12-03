@@ -36,7 +36,7 @@ const CreateInvestorTargetButton = ({ onSubmit, fullName, email, fundraisingStag
 
   const onUpdateStore = (store, { data: { createInvestorTarget: { investorTarget } } }) => {
     const data = store.readQuery({ query: ALL_INVESTOR_TARGETS_QUERY });
-    data.investorTargets.push(investorTarget);
+    data.investorTargets.unshift(investorTarget);
     store.writeQuery({
       query: ALL_INVESTOR_TARGETS_QUERY,
       data

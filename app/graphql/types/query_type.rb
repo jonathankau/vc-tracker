@@ -13,7 +13,7 @@ module Types
     end
 
     def investor_targets
-      InvestorTarget.all
+      InvestorTarget.order(created_at: :desc)
     end
 
     def investor_target(id:)
