@@ -1,6 +1,8 @@
 import React from 'react';
 import { Modal, Button } from 'react-bulma-components/full';
 
+import CreateInvestorTargetForm from './CreateInvestorTargetForm';
+
 const CreateInvestorTargetModal = ({ isVisible, onClose }) => (
   <Modal show={isVisible} onClose={onClose} showClose={false} closeOnBlur>
     <Modal.Card>
@@ -9,7 +11,7 @@ const CreateInvestorTargetModal = ({ isVisible, onClose }) => (
       </Modal.Card.Head>
 
       <Modal.Card.Body>
-        <p>Put form here</p>
+        <CreateInvestorTargetForm />
       </Modal.Card.Body>
 
       <Modal.Card.Foot>
