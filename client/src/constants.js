@@ -6,7 +6,7 @@ export const FUNDRAISING_STAGE_LABELS = Object.freeze({
   'RECEIVED_TERM_SHEET': 'Received term sheet',
   'DUE_DILIGENCE': 'Due diligence',
   'CLOSED_INVESTMENT': 'Closed investment',
-  'TERMINATED': 'Terminated'
+  'TERMINATED': 'Not interested'
 });
 
 export const FUNDRAISING_STAGE_PROGRESS_VALUES = Object.freeze({
