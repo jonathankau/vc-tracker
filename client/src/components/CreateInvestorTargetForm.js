@@ -5,7 +5,7 @@ const CreateInvestorTargetForm = ({
   onFieldChange,
   fullName,
   email,
-  fundraisingProgress
+  fundraisingStage
 }) => (
   <div>
     <div className="field">
@@ -41,9 +41,9 @@ const CreateInvestorTargetForm = ({
       <div className="control">
         <div className="select">
           <select
-            value={fundraisingProgress}
+            value={fundraisingStage}
             onChange={onFieldChange}
-            name="fundraisingProgress"
+            name="fundraisingStage"
           >
             {Object.keys(FUNDRAISING_STAGE_LABELS).map(stage => (
               <option value={stage}>{FUNDRAISING_STAGE_LABELS[stage]}</option>
