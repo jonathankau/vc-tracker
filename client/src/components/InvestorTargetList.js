@@ -4,30 +4,30 @@ import { Query } from 'react-apollo';
 
 import InvestorTargetCard from './InvestorTargetCard';
 
-const InvestorTargetList = () => (
-  <Query
-    query={gql`
-      {
-        investorTargets {
-          id
-          fundraisingStage
-          nextFollowUpAt
+export const ALL_INVESTOR_TARGETS_QUERY = gql`
+  {
+    investorTargets {
+      id
+      fundraisingStage
+      nextFollowUpAt
 
-          investor {
-            person {
-              fullName
-              email
-              signalProfileUrl
-            }
+      investor {
+        person {
+          fullName
+          email
+          signalProfileUrl
+        }
 
-            firm {
-              name
-            }
-          }
+        firm {
+          name
         }
       }
-    `}
-  >
+    }
+  }
+`;
+
+const InvestorTargetList = () => (
+  <Query query={ALL_INVESTOR_TARGETS_QUERY}>
     {({ loading, error, data }) => {
       if (loading) return <p>Loading</p>;
       if (error) return <p>Error</p>;
