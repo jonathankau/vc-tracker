@@ -28,20 +28,32 @@ module Mutations
         end
       end
 
-      if (investor.firm.nil? || investor.firm.save) &&
-          investor.person.save &&
-          investor.save &&
-          investor_target.save
-        {
+      potentially_changed_entities = [
+        investor.firm,
+        investor.person,
+        investor,
+        investor_target
+      ].compact
+
+      resolved_data = nil
+
+      ActiveRecord::Base.transaction do
+        potentially_changed_entities.each { |entity| entity.save! }
+
+        resolved_data = {
           investor_target: investor_target,
           errors: []
         }
-      else
-        {
+      rescue ActiveRecord::RecordInvalid => e
+        resolved_data = {
           investor_target: nil,
-          errors: investor_target.errors.full_messages
+          errors: e.record.errors.full_messages
         }
+
+        raise ActiveRecord::Rollback
       end
+
+      resolved_data
     end
   end
 end
