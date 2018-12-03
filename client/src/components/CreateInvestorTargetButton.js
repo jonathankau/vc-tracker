@@ -50,8 +50,8 @@ const CreateInvestorTargetButton = ({ onSubmit, fullName, email, fundraisingStag
       onCompleted={onSubmit}
       update={onUpdateStore}
     >
-      {createMutation => (
-        <Button onClick={createMutation} color="info">Save</Button>
+      {mutate => (
+        <Button onClick={mutate} color="info">Save</Button>
       )}
     </Mutation>
   );

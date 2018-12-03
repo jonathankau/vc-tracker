@@ -1,5 +1,6 @@
 import React from 'react';
-import { FUNDRAISING_STAGE_LABELS } from '../constants';
+
+import FundraisingStageSelect from './FundraisingStageSelect';
 
 const CreateInvestorTargetForm = ({
   onFieldChange,
@@ -38,19 +39,10 @@ const CreateInvestorTargetForm = ({
 
     <div className="field">
       <div className="label">Fundraising Progress</div>
-      <div className="control">
-        <div className="select">
-          <select
-            value={fundraisingStage}
-            onChange={onFieldChange}
-            name="fundraisingStage"
-          >
-            {Object.keys(FUNDRAISING_STAGE_LABELS).map(stage => (
-              <option value={stage}>{FUNDRAISING_STAGE_LABELS[stage]}</option>
-            ))}
-          </select>
-        </div>
-      </div>
+      <FundraisingStageSelect
+        fundraisingStage={fundraisingStage}
+        onChange={onFieldChange}
+      />
     </div>
   </div>
 );

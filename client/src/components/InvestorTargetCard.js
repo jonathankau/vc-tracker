@@ -9,8 +9,10 @@ import {
   Columns,
 } from 'react-bulma-components/full';
 
+import MutativeFundraisingStageSelect from './MutativeFundraisingStageSelect';
+
 const InvestorTargetCard = ({ investorTarget }) => {
-  const { investor, fundraisingStage } = investorTarget;
+  const { investor } = investorTarget;
 
   return (
     <Box>
@@ -33,8 +35,9 @@ const InvestorTargetCard = ({ investorTarget }) => {
 
             <Columns.Column>
               <div className="is-pulled-right">
-                {fundraisingStage}
-                <Progress style={{ width: 200 }} max={100} value={15} color="warning"/>
+                <MutativeFundraisingStageSelect investorTarget={investorTarget} />
+
+                <Progress style={{ width: 200, marginTop: '1rem' }} max={100} value={15} color="warning"/>
               </div>
             </Columns.Column>
           </Columns>
