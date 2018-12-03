@@ -10,7 +10,9 @@ const FundraisingStageSelect = ({ fundraisingStage, onChange }) => (
         name="fundraisingStage"
       >
         {Object.keys(FUNDRAISING_STAGE_LABELS).map(stage => (
-          <option value={stage}>{FUNDRAISING_STAGE_LABELS[stage]}</option>
+          <option key={stage} value={stage}>
+            {FUNDRAISING_STAGE_LABELS[stage]}
+          </option>
         ))}
       </select>
     </div>

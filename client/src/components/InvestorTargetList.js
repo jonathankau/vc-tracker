@@ -33,7 +33,7 @@ const InvestorTargetList = () => (
       if (error) return <p>Error</p>;
 
       return data.investorTargets.map(target => (
-        <InvestorTargetCard investorTarget={target} />
+        <InvestorTargetCard key={target.id} investorTarget={target} />
       ));
     }}
   </Query>
