@@ -5,25 +5,32 @@ import CreateInvestorTargetForm from './CreateInvestorTargetForm';
 import CreateInvestorTargetButton from './CreateInvestorTargetButton';
 import { FUNDRAISING_STAGE_LABELS } from '../constants';
 
+const INITIAL_MODAL_STATE = {
+  fullName: '',
+  email: '',
+  fundraisingStage: Object.keys(FUNDRAISING_STAGE_LABELS)[0]
+};
+
 class CreateInvestorTargetModal extends Component {
-  state = {
-    fullName: '',
-    email: '',
-    fundraisingStage: Object.keys(FUNDRAISING_STAGE_LABELS)[0]
-  };
+  state = INITIAL_MODAL_STATE;
 
   onFieldChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  onFormSubmit = () => {
+    this.setState(INITIAL_MODAL_STATE);
+    this.props.hideModal();
+  };
+
   render() {
-    const { isVisible, onClose } = this.props;
+    const { isVisible, hideModal } = this.props;
     const { fullName, email, fundraisingStage } = this.state;
 
     return (
-      <Modal show={isVisible} onClose={onClose} showClose={false} closeOnBlur>
+      <Modal show={isVisible} onClose={hideModal} showClose={false} closeOnBlur>
         <Modal.Card>
-          <Modal.Card.Head onClose={onClose}>
+          <Modal.Card.Head onClose={hideModal}>
             <Modal.Card.Title>Track a new investor</Modal.Card.Title>
           </Modal.Card.Head>
 
@@ -38,7 +45,7 @@ class CreateInvestorTargetModal extends Component {
 
           <Modal.Card.Foot>
             <CreateInvestorTargetButton
-              closeModal={onClose}
+              onSubmit={this.onFormSubmit}
               fullName={fullName}
               email={email}
               fundraisingStage={fundraisingStage}

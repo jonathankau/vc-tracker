@@ -13,13 +13,17 @@ const CREATE_INVESTOR_TARGET_MUTATION = gql`
   }
 `;
 
-const CreateInvestorTargetButton = ({ fullName, email, fundraisingStage }) => {
+const CreateInvestorTargetButton = ({ onSubmit, fullName, email, fundraisingStage }) => {
   const variables = {
     attributes: { fullName, email, fundraisingStage }
   };
 
   return (
-    <Mutation mutation={CREATE_INVESTOR_TARGET_MUTATION} variables={variables}>
+    <Mutation
+      mutation={CREATE_INVESTOR_TARGET_MUTATION}
+      variables={variables}
+      onCompleted={onSubmit}
+    >
       {createMutation => (
         <Button onClick={createMutation} color="info">Save</Button>
       )}
