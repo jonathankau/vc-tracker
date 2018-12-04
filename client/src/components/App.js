@@ -1,4 +1,5 @@
 import ApolloClient from 'apollo-boost';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 import React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import { Container } from 'react-bulma-components/full';
@@ -8,8 +9,19 @@ import '../styles/App.scss';
 import InvestorTargetListScreen from './InvestorTargetListScreen';
 import InvestorTargetScreen from './InvestorTargetScreen';
 
+const cache = new InMemoryCache({
+  cacheRedirects: {
+    Query: {
+      investorTarget: (_, args, { getCacheKey }) => {
+        return getCacheKey({ __typename: 'InvestorTarget', id: args.id });
+      }
+    }
+  }
+});
+
 const client = new ApolloClient({
-  uri: 'http://localhost:3000/graphql'
+  uri: 'http://localhost:3000/graphql',
+  cache
 });
 
 const App = () => (
