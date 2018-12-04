@@ -1,30 +1,8 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
 import InvestorTargetCard from './InvestorTargetCard';
-
-export const ALL_INVESTOR_TARGETS_QUERY = gql`
-  query LoadAllInvestorTargets {
-    investorTargets {
-      id
-      fundraisingStage
-      nextFollowUpAt
-
-      investor {
-        person {
-          fullName
-          email
-          signalProfileUrl
-        }
-
-        firm {
-          name
-        }
-      }
-    }
-  }
-`;
+import { ALL_INVESTOR_TARGETS_QUERY } from '../graphql';
 
 const InvestorTargetList = () => (
   <Query query={ALL_INVESTOR_TARGETS_QUERY}>

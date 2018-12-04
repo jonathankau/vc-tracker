@@ -1,32 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
 import InvestorTargetCard from './InvestorTargetCard';
-
-export const SINGLE_INVESTOR_TARGET_QUERY = gql`
-  query LoadInvestorTarget($id: ID!) {
-    investorTarget(id: $id) {
-      id
-      fundraisingStage
-      nextFollowUpAt
-
-      investor {
-        person {
-          fullName
-          email
-          signalProfileUrl
-        }
-
-        firm {
-          name
-        }
-      }
-    }
-  }
-`;
+import { SINGLE_INVESTOR_TARGET_QUERY } from '../graphql';
 
 const LoadedInvestorTargetCard = ({ investorTargetId }) => (
   <Query query={SINGLE_INVESTOR_TARGET_QUERY} variables={{ id: investorTargetId }}>

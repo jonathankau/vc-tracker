@@ -1,33 +1,8 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import { Button } from 'react-bulma-components/full';
-import gql from 'graphql-tag';
 
-import { ALL_INVESTOR_TARGETS_QUERY } from './InvestorTargetList';
-
-const CREATE_INVESTOR_TARGET_MUTATION = gql`
-  mutation CreateInvestorTarget($attributes: CreateInvestorTargetAttributes!) {
-    createInvestorTarget(attributes: $attributes) {
-      investorTarget {
-        id
-        fundraisingStage
-        nextFollowUpAt
-
-        investor {
-          person {
-            fullName
-            email
-            signalProfileUrl
-          }
-
-          firm {
-            name
-          }
-        }
-      }
-    }
-  }
-`;
+import { ALL_INVESTOR_TARGETS_QUERY, CREATE_INVESTOR_TARGET_MUTATION } from '../graphql';
 
 const CreateInvestorTargetButton = ({
   onSubmit,
