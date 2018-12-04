@@ -7,6 +7,10 @@ const FundraisingStageSelect = ({ fundraisingStage, onChange }) => (
       <select
         value={fundraisingStage}
         onChange={onChange}
+        onClick={e => {
+          e.preventDefault();
+          e.stopPropagation();
+        }}
         name="fundraisingStage"
       >
         {Object.keys(FUNDRAISING_STAGE_LABELS).map(stage => (

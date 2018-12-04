@@ -5,7 +5,7 @@ import { Query } from 'react-apollo';
 import InvestorTargetCard from './InvestorTargetCard';
 
 export const ALL_INVESTOR_TARGETS_QUERY = gql`
-  {
+  query LoadAllInvestorTargets {
     investorTargets {
       id
       fundraisingStage

@@ -53,7 +53,9 @@ const CreateInvestorTargetForm = ({
     </div>
 
     <div className="field">
-      <div className="label">Fundraising Progress</div>
+      <div className="label">
+        How far along are you with this investor? <span className="has-text-danger">*</span>
+      </div>
       <FundraisingStageSelect
         fundraisingStage={fundraisingStage}
         onChange={onFieldChange}

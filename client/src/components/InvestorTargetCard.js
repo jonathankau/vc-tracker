@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 
 import {
   Box,
@@ -11,40 +12,46 @@ import {
 import MutativeFundraisingStageSelect from './MutativeFundraisingStageSelect';
 import FundraisingStageProgress from './FundraisingStageProgress';
 
-const InvestorTargetCard = ({ investorTarget }) => {
-  const { investor } = investorTarget;
+class InvestorTargetCard extends Component {
+  render() {
+    const { investorTarget, history } = this.props;
+    const { investor } = investorTarget;
 
-  return (
-    <Box style={{ marginBottom: 0, borderRadius: 0 }}>
-      <Media>
-        <Media.Item position="left">
-          <Image size={64} alt="64x64" src="http://bulma.io/images/placeholders/128x128.png" />
-        </Media.Item>
+    return (
+      <Box
+        onClick={() => history.push(`/investors/${investorTarget.id}`)}
+        style={{ marginBottom: 0, borderRadius: 0 }}
+      >
+        <Media>
+          <Media.Item position="left">
+            <Image size={64} alt="64x64" src="http://bulma.io/images/placeholders/128x128.png" />
+          </Media.Item>
 
-        <Media.Item>
-          <Columns>
-            <Columns.Column>
-              <Content>
-                <strong>{investor.person.fullName}</strong>
-                <p>
-                  { investor.firm ? investor.firm.name : 'Individual/Angel' }<br />
-                  { investor.person.email ? <span>{investor.person.email}<br /></span> : null }
-                </p>
-              </Content>
-            </Columns.Column>
+          <Media.Item>
+            <Columns>
+              <Columns.Column>
+                <Content>
+                  <strong>{investor.person.fullName}</strong>
+                  <p>
+                    { investor.firm ? investor.firm.name : 'Individual/Angel' }<br />
+                    { investor.person.email ? <span>{investor.person.email}<br /></span> : null }
+                  </p>
+                </Content>
+              </Columns.Column>
 
-            <Columns.Column>
-              <div className="is-pulled-right">
-                <MutativeFundraisingStageSelect investorTarget={investorTarget} />
+              <Columns.Column>
+                <div className="is-pulled-right">
+                  <MutativeFundraisingStageSelect investorTarget={investorTarget} />
 
-                <FundraisingStageProgress fundraisingStage={investorTarget.fundraisingStage} />
-              </div>
-            </Columns.Column>
-          </Columns>
-        </Media.Item>
-      </Media>
-    </Box>
-  );
-};
+                  <FundraisingStageProgress fundraisingStage={investorTarget.fundraisingStage} />
+                </div>
+              </Columns.Column>
+            </Columns>
+          </Media.Item>
+        </Media>
+      </Box>
+    );
+  }
+}
 
-export default InvestorTargetCard
+export default withRouter(InvestorTargetCard);
