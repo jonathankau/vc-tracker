@@ -39,7 +39,7 @@ class InvestorTargetScreen extends Component {
         <HeaderButtonGroup
           headerTitle="Investor Notes"
           buttonText="Add a note"
-          onClick={() => console.log('Adding a note')}
+          buttonOnClick={() => console.log('Adding a note')}
           style={{ marginTop: '3rem' }}
         />
 
