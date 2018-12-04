@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181202062902) do
+ActiveRecord::Schema.define(version: 20181204192825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20181202062902) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "investor_target_notes", force: :cascade do |t|
+    t.text "body"
+    t.bigint "investor_target_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["investor_target_id"], name: "index_investor_target_notes_on_investor_target_id"
   end
 
   create_table "investor_targets", force: :cascade do |t|
@@ -47,6 +55,7 @@ ActiveRecord::Schema.define(version: 20181202062902) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "investor_target_notes", "investor_targets"
   add_foreign_key "investor_targets", "investors"
   add_foreign_key "investors", "firms"
   add_foreign_key "investors", "people"

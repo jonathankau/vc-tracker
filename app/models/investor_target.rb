@@ -1,5 +1,8 @@
 class InvestorTarget < ApplicationRecord
   belongs_to :investor, validate: true
+  has_many :investor_target_notes
+  alias_attribute :notes, :investor_target_notes
+
   validates :fundraising_stage, presence: true
 
   enum fundraising_stage: {

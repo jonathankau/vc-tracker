@@ -40,6 +40,16 @@ export const SINGLE_INVESTOR_TARGET_QUERY = gql`
   ${ALL_INVESTOR_FIELDS_FRAGMENT}
 `;
 
+export const INVESTOR_TARGET_NOTES_QUERY = gql`
+  query LoadInvestorTargetNotes($id: ID!) {
+    investorTargetNotes(id: $id) {
+      id
+      body
+      createdAt
+    }
+  }
+`;
+
 export const CREATE_INVESTOR_TARGET_MUTATION = gql`
   mutation CreateInvestorTarget($attributes: CreateInvestorTargetAttributes!) {
     createInvestorTarget(attributes: $attributes) {

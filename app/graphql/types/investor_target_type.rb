@@ -6,5 +6,6 @@ module Types
     field :next_follow_up_at, GraphQL::Types::ISO8601DateTime, null: true
 
     field :investor, InvestorType, null: false
+    field :notes, [InvestorTargetNoteType], null: false
   end
 end
