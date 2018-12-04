@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 
-import {
-  Button,
-  Heading
-} from 'react-bulma-components/full';
-
 import InvestorTargetList from './InvestorTargetList';
 import CreateInvestorTargetModal from './CreateInvestorTargetModal';
+import HeaderButtonGroup from './HeaderButtonGroup';
 
 class InvestorTargetListScreen extends Component {
   state = {
@@ -16,19 +12,11 @@ class InvestorTargetListScreen extends Component {
   render() {
     return (
       <div>
-        <div
-          className="is-flex"
-          style={{ marginBottom: '1rem', alignItems: 'center', justifyContent: 'space-between' }}
-        >
-          <Heading size={5} style={{ marginBottom: 0 }}>Fundraising Tracker</Heading>
-          <Button
-            color="info"
-            style={{ marginLeft: '1rem' }}
-            onClick={() => this.setState({ showCreateTargetModal: true })}
-          >
-            Add an investor
-          </Button>
-        </div>
+        <HeaderButtonGroup
+          headerTitle="Fundraising Tracker"
+          buttonText="Add an investor"
+          onClick={() => this.setState({ showCreateTargetModal: true })}
+        />
 
         <InvestorTargetList />
         <CreateInvestorTargetModal

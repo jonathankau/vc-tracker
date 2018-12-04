@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { Query } from 'react-apollo';
 
+import { Table } from 'react-bulma-components/full';
+
 import InvestorTargetCard from './InvestorTargetCard';
+import HeaderButtonGroup from './HeaderButtonGroup';
+
 import { SINGLE_INVESTOR_TARGET_QUERY } from '../graphql';
 
 const LoadedInvestorTargetCard = ({ investorTargetId }) => (
@@ -31,6 +35,24 @@ class InvestorTargetScreen extends Component {
         </p>
 
         <LoadedInvestorTargetCard investorTargetId={investorTargetId} />
+
+        <HeaderButtonGroup
+          headerTitle="Investor Notes"
+          buttonText="Add a note"
+          onClick={() => console.log('Adding a note')}
+          style={{ marginTop: '3rem' }}
+        />
+
+      <Table bordered>
+        <tbody>
+          <tr>
+            <td>These are notes</td>
+          </tr>
+          <tr>
+            <td>These are more notes</td>
+          </tr>
+        </tbody>
+      </Table>
       </div>
     );
   }
