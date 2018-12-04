@@ -13,7 +13,9 @@ module Types
     end
 
     def investor_targets
-      InvestorTarget.order(created_at: :desc)
+      InvestorTarget
+        .order(created_at: :desc)
+        .includes(:investor, investor: [ :person, :firm ])
     end
 
     def investor_target(id:)
