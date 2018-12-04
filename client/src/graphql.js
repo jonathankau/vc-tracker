@@ -50,6 +50,18 @@ export const INVESTOR_TARGET_NOTES_QUERY = gql`
   }
 `;
 
+export const CREATE_INVESTOR_TARGET_NOTE_MUTATION = gql`
+  mutation CreateInvestorTargetNote($investorTargetId: ID!, $body: String!) {
+    createInvestorTargetNote(investorTargetId: $investorTargetId, body: $body) {
+      note {
+        id
+        body
+        createdAt
+      }
+    }
+  }
+`;
+
 export const CREATE_INVESTOR_TARGET_MUTATION = gql`
   mutation CreateInvestorTarget($attributes: CreateInvestorTargetAttributes!) {
     createInvestorTarget(attributes: $attributes) {
