@@ -18,9 +18,9 @@ class InvestorTargetListScreen extends Component {
       <div>
         <div
           className="is-flex"
-          style={{ marginBottom: '1rem', alignItems: 'center', justifyContent: 'center' }}
+          style={{ marginBottom: '1rem', alignItems: 'center', justifyContent: 'space-between' }}
         >
-          <Heading size={5} style={{ marginBottom: 0 }}>Investor Tracker</Heading>
+          <Heading size={5} style={{ marginBottom: 0 }}>Fundraising Tracker</Heading>
           <Button
             color="info"
             style={{ marginLeft: '1rem' }}
