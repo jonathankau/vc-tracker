@@ -8,7 +8,8 @@ import { FUNDRAISING_STAGE_LABELS } from '../constants';
 const INITIAL_MODAL_STATE = {
   fullName: '',
   email: '',
-  fundraisingStage: Object.keys(FUNDRAISING_STAGE_LABELS)[0]
+  fundraisingStage: Object.keys(FUNDRAISING_STAGE_LABELS)[0],
+  firmName: ''
 };
 
 class CreateInvestorTargetModal extends Component {
@@ -25,7 +26,7 @@ class CreateInvestorTargetModal extends Component {
 
   render() {
     const { isVisible, hideModal } = this.props;
-    const { fullName, email, fundraisingStage } = this.state;
+    const { fullName, email, fundraisingStage, firmName } = this.state;
 
     return (
       <Modal show={isVisible} onClose={hideModal} showClose={false} closeOnBlur>
@@ -40,6 +41,7 @@ class CreateInvestorTargetModal extends Component {
               fullName={fullName}
               email={email}
               fundraisingStage={fundraisingStage}
+              firmName={firmName}
             />
           </Modal.Card.Body>
 
@@ -49,6 +51,7 @@ class CreateInvestorTargetModal extends Component {
               fullName={fullName}
               email={email}
               fundraisingStage={fundraisingStage}
+              firmName={firmName}
             />
           </Modal.Card.Foot>
         </Modal.Card>

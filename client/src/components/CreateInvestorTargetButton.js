@@ -29,9 +29,15 @@ const CREATE_INVESTOR_TARGET_MUTATION = gql`
   }
 `;
 
-const CreateInvestorTargetButton = ({ onSubmit, fullName, email, fundraisingStage }) => {
+const CreateInvestorTargetButton = ({
+  onSubmit,
+  fullName,
+  email,
+  fundraisingStage,
+  firmName
+}) => {
   const variables = {
-    attributes: { fullName, email, fundraisingStage }
+    attributes: { fullName, email, fundraisingStage, firmName }
   };
 
   const onUpdateStore = (store, { data: { createInvestorTarget: { investorTarget } } }) => {
