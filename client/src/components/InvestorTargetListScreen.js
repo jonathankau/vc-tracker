@@ -16,8 +16,11 @@ class InvestorTargetListScreen extends Component {
   render() {
     return (
       <div>
-        <div className="is-flex" style={{ justifyContent: 'center' }}>
-          <Heading>Investor Tracker</Heading>
+        <div
+          className="is-flex"
+          style={{ marginBottom: '1rem', alignItems: 'center', justifyContent: 'center' }}
+        >
+          <Heading size={5} style={{ marginBottom: 0 }}>Investor Tracker</Heading>
           <Button
             color="info"
             style={{ marginLeft: '1rem' }}

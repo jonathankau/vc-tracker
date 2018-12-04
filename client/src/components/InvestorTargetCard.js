@@ -15,7 +15,7 @@ const InvestorTargetCard = ({ investorTarget }) => {
   const { investor } = investorTarget;
 
   return (
-    <Box>
+    <Box style={{ marginBottom: 0, borderRadius: 0 }}>
       <Media>
         <Media.Item position="left">
           <Image size={64} alt="64x64" src="http://bulma.io/images/placeholders/128x128.png" />
