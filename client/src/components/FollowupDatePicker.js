@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
+import { Button } from 'react-bulma-components/full';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -35,21 +36,36 @@ class FollowupDatePicker extends Component {
     return (
       <Mutation mutation={EDIT_INVESTOR_TARGET_MUTATION}>
         {mutate => (
-          <DatePicker
-            selected={nextFollowUpAt && moment(nextFollowUpAt).toDate()}
-            minDate={TODAY_DATE}
-            onChange={date => mutate({
-              variables: {
-                id: investorTargetId,
-                attributes: { nextFollowUpAt: moment(date).toISOString() }
-              }
-            })}
-            onClick={e => {
-              e.preventDefault();
-              e.stopPropagation();
-            }}
-            className="input"
-          />
+          <div>
+            <DatePicker
+              selected={nextFollowUpAt && moment(nextFollowUpAt).toDate()}
+              minDate={TODAY_DATE}
+              onChange={date => mutate({
+                variables: {
+                  id: investorTargetId,
+                  attributes: { nextFollowUpAt: moment(date).toISOString() }
+                }
+              })}
+              onClick={e => {
+                e.preventDefault();
+                e.stopPropagation();
+              }}
+              className="input"
+            />
+
+            <Button
+              color="info"
+              style={{ marginLeft: '1rem' }}
+              onClick={() => mutate({
+                variables: {
+                  id: investorTargetId,
+                  attributes: { nextFollowUpAt: null }
+                }
+              })}
+            >
+              Clear
+            </Button>
+          </div>
         )}
       </Mutation>
     );
