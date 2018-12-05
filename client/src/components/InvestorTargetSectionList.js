@@ -25,7 +25,7 @@ const InvestorTargetSectionList = () => (
 
       if (data.investorTargets.length === 0) return (
         <Box className="has-text-centered has-text-grey-light">
-          Start tracking your company's fundraising process by adding an investor you'd like to track!
+          Start tracking your company's fundraising process by adding an investor you're interested in!
         </Box>
       );
 
