@@ -58,7 +58,7 @@ class InvestorTargetScreen extends Component {
 
         <HeaderButtonGroup
           headerTitle="Notes"
-          buttonText="Add a note"
+          buttonText="Add note"
           buttonOnClick={() => this.setState({ showCreateNoteModal: true })}
         />
 

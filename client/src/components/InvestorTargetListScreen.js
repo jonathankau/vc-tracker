@@ -14,7 +14,7 @@ class InvestorTargetListScreen extends Component {
       <div>
         <HeaderButtonGroup
           headerTitle="Fundraising Tracker"
-          buttonText="Add an investor"
+          buttonText="Add investor"
           buttonOnClick={() => this.setState({ showCreateTargetModal: true })}
         />
 

@@ -14,18 +14,25 @@ const NotesList = ({ investorTargetId }) => (
       if (error) return <p>Investor not found</p>;
 
       const sortedNotes = _.sortBy(data.investorTargetNotes, n => n.createdAt).reverse();
+      const emptyStateRow = (
+        <tr>
+          <td className="has-text-centered has-text-grey-light">
+            Your notes will show up here!
+          </td>
+        </tr>
+      );
 
       return (
         <Table bordered>
           <tbody>
-            {sortedNotes.map(n => (
+            {sortedNotes.length > 0 ? sortedNotes.map(n => (
               <tr key={n.id}>
                 <td>
                   {n.body}<br />
                   <strong className="is-pulled-right">{moment(n.createdAt).format("MMM D")}</strong>
                 </td>
               </tr>
-            ))}
+            )) : emptyStateRow}
           </tbody>
         </Table>
       );
