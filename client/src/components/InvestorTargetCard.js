@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 
@@ -35,6 +36,11 @@ class InvestorTargetCard extends Component {
                   <p>
                     { investor.firm ? investor.firm.name : 'Individual/Angel' }<br />
                     { investor.person.email ? <span>{investor.person.email}<br /></span> : null }
+                    { investorTarget.nextFollowUpAt ? (
+                      <span className="has-text-danger">
+                        Follow up on {moment(investorTarget.nextFollowUpAt).format('MMM DD')}<br />
+                      </span>
+                    ) : null }
                   </p>
                 </Content>
               </Columns.Column>

@@ -23,7 +23,7 @@ const LoadedInvestorTargetSection = ({ investorTargetId }) => (
           <InvestorTargetCard key={target.id} investorTarget={target} />
 
           <div className="control has-text-centered" style={{ marginTop: '1rem' }}>
-            <div className="label">Set your next followup reminder:</div>
+            <div className="label">Set your next follow-up reminder:</div>
 
             <FollowupDatePicker
               investorTargetId={target.id}
