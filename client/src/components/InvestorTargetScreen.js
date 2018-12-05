@@ -54,11 +54,12 @@ class InvestorTargetScreen extends Component {
 
         <LoadedInvestorTargetSection investorTargetId={investorTargetId} />
 
+        <hr style={{ marginTop: '3rem' }} />
+
         <HeaderButtonGroup
           headerTitle="Notes"
           buttonText="Add a note"
           buttonOnClick={() => this.setState({ showCreateNoteModal: true })}
-          style={{ marginTop: '3rem' }}
         />
 
         <NotesList investorTargetId={investorTargetId} />

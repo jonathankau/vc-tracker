@@ -19,6 +19,7 @@ class InvestorTargetListScreen extends Component {
         />
 
         <InvestorTargetSectionList />
+
         <CreateInvestorTargetModal
           isVisible={this.state.showCreateTargetModal}
           hideModal={() => this.setState({ showCreateTargetModal: false })}
