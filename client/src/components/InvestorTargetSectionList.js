@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { Query } from 'react-apollo';
+import { Box } from 'react-bulma-components/full';
 
 import InvestorTargetCard from './InvestorTargetCard';
 import { ALL_INVESTOR_TARGETS_QUERY } from '../graphql';
@@ -21,6 +22,12 @@ const InvestorTargetSectionList = () => (
     {({ loading, error, data }) => {
       if (loading) return <p>Loading</p>;
       if (error) return <p>Error</p>;
+
+      if (data.investorTargets.length === 0) return (
+        <Box className="has-text-centered has-text-grey-light">
+          Start tracking your company's fundraising process by adding an investor you'd like to track!
+        </Box>
+      );
 
       const [ doneTargets, inProgressTargets ] = _.partition(
         data.investorTargets,
