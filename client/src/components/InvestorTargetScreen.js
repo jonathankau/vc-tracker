@@ -46,7 +46,7 @@ class InvestorTargetScreen extends Component {
 
     return (
       <div>
-        <p className="has-text-centered" style={{ marginBottom: '1rem' }}>
+        <p className="has-text-centered" style={{ marginBottom: '2rem' }}>
           <Link to="/" className="is-size-5">
             Back to all investors
           </Link>
@@ -54,7 +54,7 @@ class InvestorTargetScreen extends Component {
 
         <LoadedInvestorTargetSection investorTargetId={investorTargetId} />
 
-        <hr style={{ marginTop: '3rem' }} />
+        <hr style={{ margin: '2rem 0' }} />
 
         <HeaderButtonGroup
           headerTitle="Notes"

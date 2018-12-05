@@ -54,8 +54,7 @@ class FollowupDatePicker extends Component {
             />
 
             <Button
-              color="info"
-              style={{ marginLeft: '1rem' }}
+              style={{ marginLeft: '0.5rem' }}
               onClick={() => mutate({
                 variables: {
                   id: investorTargetId,
