@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import InvestorTargetList from './InvestorTargetList';
+import InvestorTargetSectionList from './InvestorTargetSectionList';
 import CreateInvestorTargetModal from './CreateInvestorTargetModal';
 import HeaderButtonGroup from './HeaderButtonGroup';
 
@@ -18,7 +18,7 @@ class InvestorTargetListScreen extends Component {
           buttonOnClick={() => this.setState({ showCreateTargetModal: true })}
         />
 
-        <InvestorTargetList />
+        <InvestorTargetSectionList />
         <CreateInvestorTargetModal
           isVisible={this.state.showCreateTargetModal}
           hideModal={() => this.setState({ showCreateTargetModal: false })}
