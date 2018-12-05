@@ -1,24 +1,22 @@
-# README
+# Investor Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sample application w/ Rails, GraphQL (graphql-ruby), and React/Apollo.
 
-Things you may want to cover:
+## Initial setup
 
-* Ruby version
+1. Install Ruby 2.5.0 with rbenv.
+2. Install Ruby gems with `bundle install`.
+3. Create and migrate your development DB with `rails db:create` and `rails db:migrate`.
+4. Navigate to `/client` and run `yarn install`. You may need to install a compatible version of Node with nvm.
 
-* System dependencies
+## Local development
 
-* Configuration
+### Backend
 
-* Database creation
+* Run `rails s`.
+* Navigate to http://localhost:3000/graphiql to explore the GraphQL schema.
 
-* Database initialization
+### Frontend
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Run `yarn start` from the `client/` folder.
+* Navigate to http://localhost:8080 to view the application.
